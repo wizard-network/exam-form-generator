@@ -2,3 +2,4 @@ node_modules/
 dist/
 out/
 src/renderer/output.css
+.DS_Store

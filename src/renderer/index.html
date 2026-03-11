@@ -17,19 +17,36 @@
   <div id="toast-container" class="fixed top-4 right-4 z-50"></div>
 
   <!-- Upload Screen -->
-  <div id="upload-screen" class="flex flex-col items-center justify-center min-h-screen">
+  <div id="upload-screen" class="flex flex-col items-center justify-center min-h-screen relative">
     <div class="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full text-center">
-      <div class="mb-6">
-        <svg class="mx-auto w-16 h-16 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <img src="../../assets/logo-pabson.png" alt="PABSON" class="w-14 h-14 object-contain">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-800 mb-1">PABSON/NPABSON</h1>
+          <h2 class="text-lg font-semibold text-blue-600">Exam Form & Admit Card Generator</h2>
+        </div>
+        <img src="../../assets/logo-npabson.png" alt="NPABSON" class="w-14 h-14 object-contain">
       </div>
-      <h1 class="text-2xl font-bold text-gray-800 mb-2">Exam Form Generator</h1>
       <p class="text-gray-500 mb-8">Upload an Excel file with student data to generate Application Forms and Admit Cards.</p>
       <button id="btn-upload" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 cursor-pointer">
         Upload Excel File
       </button>
+      <div class="mt-4">
+        <button id="btn-download-sample" class="text-blue-500 hover:text-blue-700 text-sm font-medium underline cursor-pointer">
+          Download Sample Excel File
+        </button>
+      </div>
       <p id="upload-error" class="text-red-500 mt-4 hidden"></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="absolute bottom-6 text-center">
+      <p class="text-sm text-gray-500">Developed by</p>
+      <p class="text-base font-bold text-gray-800">Anup Bhattarai</p>
+      <p class="text-sm text-gray-600 mt-1">Victory Residential Secondary School</p>
+      <p class="text-sm mt-1">
+        <a href="mailto:anupbhattarai567@gmail.com" class="text-blue-600 font-semibold hover:text-blue-700 hover:underline">anupbhattarai567@gmail.com</a>
+      </p>
     </div>
   </div>
 
@@ -96,6 +113,11 @@
           </tbody>
         </table>
       </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center mt-6 pb-4">
+      <p class="text-sm text-gray-500">Developed by <span class="text-base font-bold text-gray-800">Anup Bhattarai</span> &middot; <span class="text-gray-600">Victory Residential Secondary School</span> &middot; <a href="mailto:anupbhattarai567@gmail.com" class="text-blue-600 font-semibold hover:text-blue-700 hover:underline">anupbhattarai567@gmail.com</a></p>
     </div>
   </div>
 

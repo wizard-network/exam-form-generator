@@ -155,3 +155,14 @@ async function handleGenerate(type) {
 btnGenApp.addEventListener('click', () => handleGenerate('application'));
 btnGenAdmit.addEventListener('click', () => handleGenerate('admitcard'));
 btnGenCombined.addEventListener('click', () => handleGenerate('combined'));
+
+// Download sample
+document.getElementById('btn-download-sample').addEventListener('click', async () => {
+  const result = await window.api.downloadSample();
+  if (result.canceled) return;
+  if (result.success) {
+    showToast('Sample file saved!', 'success', result.filePath);
+  } else {
+    showToast(result.error || 'Failed to save sample', 'error');
+  }
+});

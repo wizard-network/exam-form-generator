@@ -61,3 +61,20 @@ ipcMain.handle('generate-pdf', async (event, students, type) => {
 ipcMain.handle('open-path', async (event, filePath) => {
   shell.showItemInFolder(filePath);
 });
+
+// IPC: Download sample Excel file
+ipcMain.handle('download-sample', async () => {
+  const fs = require('fs');
+  const sampleSrc = path.join(__dirname, '..', '..', 'sample', 'sample.xlsx');
+  if (!fs.existsSync(sampleSrc)) return { success: false, error: 'Sample file not found' };
+
+  const { canceled, filePath: dest } = await dialog.showSaveDialog(mainWindow, {
+    title: 'Save Sample Excel File',
+    defaultPath: 'sample_students.xlsx',
+    filters: [{ name: 'Excel Files', extensions: ['xlsx'] }],
+  });
+  if (canceled || !dest) return { canceled: true };
+
+  fs.copyFileSync(sampleSrc, dest);
+  return { success: true, filePath: dest };
+});
