@@ -15,7 +15,7 @@ const COLUMN_ALIASES = {
   email: ['email', 'e-mail', 'email address'],
   optionalI: ['optional subject i', 'optional i', 'optional subject 1', 'optional 1', 'opt i', 'opt 1'],
   optionalII: ['optional subject ii', 'optional ii', 'optional subject 2', 'optional 2', 'opt ii', 'opt 2'],
-  photo: ['photo', 'photo path', 'picture', 'image'],
+  photo: ['photo', 'photo path', 'picture', 'image', 'student photo', 'student image', 'photo file', 'photograph'],
 };
 
 function matchColumn(header) {
@@ -59,13 +59,15 @@ async function parseExcel(filePath) {
     }
 
     // Resolve photo path relative to excel file directory
-    if (student.photo) {
-      const photoPath = path.resolve(excelDir, student.photo);
-      if (fs.existsSync(photoPath)) {
-        student.photoPath = photoPath;
-      } else {
-        student.photoPath = '';
-      }
+    if (student.photo && student.photo.trim()) {
+      const photoRaw = student.photo.trim().replace(/\\/g, '/');
+      // Try multiple resolution strategies
+      const candidates = [
+        path.resolve(excelDir, photoRaw),
+        path.resolve(excelDir, path.basename(photoRaw)),
+        photoRaw, // absolute path as-is
+      ];
+      student.photoPath = candidates.find(p => fs.existsSync(p)) || '';
     } else {
       student.photoPath = '';
     }

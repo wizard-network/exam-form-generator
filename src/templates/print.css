@@ -55,10 +55,11 @@ body {
 }
 
 .header .title-block h1 {
-  font-size: 15pt;
+  font-size: 13.5pt;
   font-weight: bold;
   margin: 0;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .header .title-block h2 {

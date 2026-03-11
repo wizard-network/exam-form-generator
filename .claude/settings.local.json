@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which node:*)",
+      "Bash(node --version 2>&1; npm --version 2>&1)",
+      "Bash(echo \"anup\" | sudo -S bash -c 'curl -fsSL https://deb.nodesource.com/setup_22.x | bash -' 2>&1)",
+      "Bash(echo \"anup\" | sudo -S add-apt-repository --remove ppa:michael-gruz/canon -y 2>&1)",
+      "Bash(echo \"anup\" | sudo -S apt-get install -y nodejs 2>&1)",
+      "Bash(node --version && npm --version)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(timeout 15 npx electron . --no-sandbox 2>&1 || true)",
+      "WebFetch(domain:nepalschoolmela.com)",
+      "WebFetch(domain:www.inquirynepal.com)",
+      "Bash(curl -sL -o /tmp/npabson_logo_test.png \"https://www.inquirynepal.com/wp-content/uploads/2020/07/logo36x36.png\")",
+      "Read(//tmp/**)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git status:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh run:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
