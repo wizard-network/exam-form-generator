@@ -11,7 +11,7 @@
     "make": "npm run css:build && electron-forge make"
   },
   "keywords": [],
-  "author": "",
+  "author": "PABSON/NPABSON",
   "license": "ISC",
   "dependencies": {
     "exceljs": "^4.4.0"
