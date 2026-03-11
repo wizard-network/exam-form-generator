@@ -1,0 +1,4 @@
+node_modules/
+dist/
+out/
+src/renderer/output.css

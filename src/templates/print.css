@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 10.5pt;
+  color: #000;
+}
+
+/* ====== PAGE ====== */
+.page {
+  width: 210mm;
+  height: 297mm;
+  padding: 8mm 10mm 8mm 15mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-break {
+  page-break-after: always;
+}
+
+/* ====== HALF SECTION ====== */
+.half-section {
+  position: relative;
+}
+
+/* ====== DASHED SEPARATOR (cut line) ====== */
+.dashed-separator {
+  border: none;
+  border-top: 2.5px dashed #000;
+  margin: 4mm 0 4mm 0;
+  height: 0;
+}
+
+/* ====== HEADER ====== */
+.header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2mm;
+}
+
+.header .logo {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.header .title-block {
+  flex: 1;
+}
+
+.header .title-block h1 {
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header .title-block h2 {
+  font-size: 12pt;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.header .title-block h3 {
+  font-size: 11pt;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.header .title-block .title-app {
+  font-size: 14pt;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.header .title-block .title-admit {
+  font-size: 16pt;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* ====== SYMBOL NO ====== */
+.symbol-no {
+  font-weight: bold;
+  font-size: 11pt;
+  margin: 2mm 0;
+}
+
+/* ====== APPLICATION FORM BODY ====== */
+.app-body {
+  position: relative;
+}
+
+.address-block {
+  font-size: 10.5pt;
+  line-height: 1.4;
+  margin-bottom: 1mm;
+  padding-right: 105px;
+}
+
+.request-text {
+  font-size: 10pt;
+  margin-bottom: 1mm;
+}
+
+/* ====== PHOTO BOX ====== */
+.photo-box,
+.admit-photo-box {
+  width: 85px;
+  height: 100px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-box img,
+.admit-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-box .placeholder,
+.admit-photo-box .placeholder {
+  font-size: 9pt;
+  color: #555;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ensure content below photo doesn't overlap */
+.photo-clearance {
+  min-height: 0;
+}
+
+/* ====== DETAILS TABLE ====== */
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5mm;
+  font-size: 10.5pt;
+}
+
+.details-table td {
+  border: 1px solid #000;
+  padding: 2px 5px;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.details-table .label {
+  font-weight: normal;
+}
+
+.details-table .value {
+  font-weight: bold;
+}
+
+.details-table .no-border-right {
+  border-right: none;
+}
+
+.details-table .no-border-left {
+  border-left: none;
+}
+
+/* ====== CERTIFICATION ====== */
+.certification {
+  font-size: 10pt;
+  margin: 2mm 0 0 0;
+}
+
+/* ====== SIGNATURE ELEMENTS ====== */
+.signature-block {
+  text-align: center;
+  font-size: 9pt;
+}
+
+.signature-block .line {
+  width: 100px;
+  border-top: 1px solid #000;
+  margin: 0 auto 2px auto;
+}
+
+.seal-block {
+  text-align: center;
+  font-size: 9pt;
+}
+
+.date-line {
+  font-size: 9pt;
+  margin-top: 3mm;
+}
+
+/* ====== APPLICATION FORM SIGNATURE LAYOUT ====== */
+/* Row 1: Student's Signature (far right) */
+.sig-row-student {
+  text-align: right;
+  margin-top: 8mm;
+}
+
+/* Row 2: Principal + Seals + Co-Ordinator */
+.sig-row-main {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 8mm;
+}
+
+.sig-row-main .sig-left {
+  /* Principal + Date stacked */
+}
+
+.sig-row-main .sig-center {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  gap: 15mm;
+}
+
+.sig-row-main .sig-right {
+  /* Co-Ordinator */
+}
+
+/* ====== ADMIT CARD BODY ====== */
+.admit-body {
+  position: relative;
+}
+
+/* ====== ADMIT CARD INFO LINES ====== */
+.info-line {
+  font-size: 10.5pt;
+  margin: 2mm 0;
+  padding-right: 105px;
+  line-height: 1.5;
+}
+
+.info-line .dots {
+  border-bottom: 1px dotted #000;
+  display: inline-block;
+  min-width: 300px;
+}
+
+/* ====== SUBJECTS TABLE ====== */
+.subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2mm 0;
+  font-size: 9.5pt;
+}
+
+.subjects-table th,
+.subjects-table td {
+  border: 1px solid #000;
+  padding: 2px 5px;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.subjects-table th {
+  font-weight: bold;
+}
+
+.subjects-heading {
+  font-size: 10pt;
+  margin: 3mm 0 1.5mm 0;
+}
+
+/* ====== ADMIT CARD SIGNATURE (single row, 4 items) ====== */
+.admit-signature-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 12mm;
+  font-size: 9pt;
+}
+
+/* ====== PRINT MEDIA ====== */
+@media print {
+  .page-break {
+    page-break-after: always;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

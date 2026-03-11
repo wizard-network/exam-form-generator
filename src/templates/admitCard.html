@@ -1,0 +1,96 @@
+<div class="half-section">
+  <!-- Header -->
+  <div class="header">
+    <img src="{{logoPabson}}" class="logo" alt="PABSON">
+    <div class="title-block">
+      <h1>PABSON AND NPABSAN MUNICIPAL LEVEL EXAMINATION 2082</h1>
+      <h2>Dharan, Sunsari, Koshi Province, Nepal</h2>
+      <h3>Class Nine Examination-2082 B.S.</h3>
+      <div class="title-admit">ADMIT CARD</div>
+    </div>
+    <img src="{{logoNpabson}}" class="logo" alt="NPABSON">
+  </div>
+
+  <!-- Symbol No -->
+  <div class="symbol-no">Symbol No.: {{symbolNo}}</div>
+
+  <!-- Body with photo -->
+  <div class="admit-body">
+    <!-- Photo box (absolute top-right) -->
+    <div class="admit-photo-box">
+      <img src="{{photoSrc}}" alt="Photo" style="display:{{photoDisplay}}">
+      <div class="placeholder" style="display:{{placeholderDisplay}}">Student's<br>Photo</div>
+    </div>
+
+    <!-- Student info lines (padding-right clears photo) -->
+    <div class="info-line">Student's Name (In Block Letters): <span class="dots">&nbsp;{{studentName}}&nbsp;</span></div>
+    <div class="info-line">Name of the School: <span class="dots">&nbsp;{{schoolName}}&nbsp;</span></div>
+    <div class="info-line">Address of the School: <span class="dots">&nbsp;{{address}}&nbsp;</span></div>
+    <div class="info-line">Student's Date of Birth: <span class="dots">&nbsp;{{dob}}&nbsp;</span></div>
+
+    <div class="subjects-heading">Subjects which are going to be appeared:</div>
+
+    <!-- Subjects table -->
+    <table class="subjects-table">
+      <tr>
+        <th style="width:7%">S.N.</th>
+        <th style="width:25%">Compulsory Subjects</th>
+        <th style="width:14%">Date</th>
+        <th style="width:7%">S.N.</th>
+        <th style="width:30%">Optional Subjects</th>
+        <th style="width:14%">Date</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Mathematics</td>
+        <td>2082/12/15</td>
+        <td rowspan="2">6</td>
+        <td rowspan="2">Optional I ({{optionalI}})</td>
+        <td rowspan="2">2082/12/20</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>English</td>
+        <td>2082/12/16</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Nepali</td>
+        <td>2082/12/17</td>
+        <td rowspan="2">7</td>
+        <td rowspan="2">Optional II ({{optionalII}})</td>
+        <td rowspan="2">2082/12/22</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Social Studies</td>
+        <td>2082/12/18</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Science</td>
+        <td>2082/12/19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Signature area (single row, 4 items evenly spaced) -->
+  <div class="admit-signature-area">
+    <div class="signature-block">
+      <div class="line"></div>
+      Student's Signature
+    </div>
+    <div class="signature-block">
+      <div class="line"></div>
+      Principal's Signature
+    </div>
+    <div class="seal-block">Organization Seal</div>
+    <div class="signature-block">
+      <div class="line"></div>
+      Co-Ordinator's Signature
+    </div>
+  </div>
+</div>

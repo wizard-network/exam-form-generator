@@ -1,0 +1,99 @@
+<div class="half-section">
+  <!-- Header -->
+  <div class="header">
+    <img src="{{logoPabson}}" class="logo" alt="PABSON">
+    <div class="title-block">
+      <h1>PABSON AND NPABSAN MUNICIPAL LEVEL EXAMINATION 2082</h1>
+      <h2>Dharan, Sunsari, Koshi Province, Nepal</h2>
+      <h3>Class Nine Examination-2082 B.S.</h3>
+      <div class="title-app">APPLICATION FORM</div>
+    </div>
+    <img src="{{logoNpabson}}" class="logo" alt="NPABSON">
+  </div>
+
+  <!-- Symbol No -->
+  <div class="symbol-no">Symbol No.: {{symbolNo}}</div>
+
+  <!-- Body with photo -->
+  <div class="app-body">
+    <!-- Photo box (absolute top-right) -->
+    <div class="photo-box">
+      <img src="{{photoSrc}}" alt="Photo" style="display:{{photoDisplay}}">
+      <div class="placeholder" style="display:{{placeholderDisplay}}">Student's<br>Photo</div>
+    </div>
+
+    <!-- To address block (left side, clears photo) -->
+    <div class="address-block">
+      To,<br>
+      The Controller<br>
+      Office of the Controller of Examinations<br>
+      PABSON/NPABSON, Dharan, Sunsari
+    </div>
+
+    <div class="request-text">
+      Request of the participant to be registered for the class IX Examination 2082 B.S. with the following particulars.
+    </div>
+
+    <!-- Details table (all 6 rows with full borders) -->
+    <table class="details-table">
+      <tr>
+        <td class="label no-border-right" style="width:75%;">1. Student's Full Name (In block Letter): <span class="value">{{studentName}}</span></td>
+        <td class="no-border-left" style="text-align: right; white-space: nowrap;">Gender: <span class="value">{{gender}}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="label">2. Father's Name: <span class="value">{{fatherName}}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="label">3. Student's Date of Birth: <span class="value">{{dob}}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="label">4. Name of the School: <span class="value">{{schoolName}}</span></td>
+      </tr>
+      <tr>
+        <td class="label no-border-right">5. Address: <span class="value">{{address}}</span></td>
+        <td class="no-border-left" style="white-space: nowrap;">Tel.: <span class="value">{{phone}}</span> &nbsp;&nbsp; E-mail: <span class="value">{{email}}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="label">
+          6. Optional Subjects:
+          <span style="margin-left: 40px;">Optional - I: <span class="value">{{optionalI}}</span></span><br>
+          <span style="margin-left: 145px;">Optional – II: <span class="value">{{optionalII}}</span></span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- Certification -->
+    <div class="certification">
+      It is certified that the above mentioned particulars are true.
+    </div>
+
+    <!-- Signature Row 1: Student's Signature (far right) -->
+    <div class="sig-row-student">
+      <div class="signature-block" style="display:inline-block;">
+        <div class="line"></div>
+        Student's Signature
+      </div>
+    </div>
+
+    <!-- Signature Row 2: Principal + Seals + Co-Ordinator -->
+    <div class="sig-row-main">
+      <div class="sig-left">
+        <div class="signature-block">
+          <div class="line"></div>
+          Principal's Signature
+        </div>
+        <div class="date-line">Date : ______________</div>
+      </div>
+      <div class="sig-center">
+        <div class="seal-block">School's Seal</div>
+        <div class="seal-block">Organization<br>Seal</div>
+      </div>
+      <div class="sig-right">
+        <div class="signature-block">
+          <div class="line"></div>
+          Co-Ordinator's Signature
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
