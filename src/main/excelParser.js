@@ -40,6 +40,31 @@ async function parseExcel(filePath) {
     if (field) columnMap[colNumber] = field;
   });
 
+  // Extract embedded images mapped by row (0-based)
+  const embeddedPhotos = {};
+  const photoColEntry = Object.entries(columnMap).find(([, field]) => field === 'photo');
+  const photoColIndex = photoColEntry ? parseInt(photoColEntry[0]) - 1 : null;
+
+  const allImages = worksheet.getImages();
+  console.log(`[excelParser] Found ${allImages.length} embedded image(s), photoColIndex=${photoColIndex}`);
+  for (const image of allImages) {
+    console.log(`[excelParser] Image: imageId=${image.imageId}, row=${image.range.tl.nativeRow}, col=${image.range.tl.nativeCol}`);
+    const col = image.range.tl.nativeCol;
+    const row = image.range.tl.nativeRow;
+    if (photoColIndex === null || col === photoColIndex) {
+      try {
+        const img = workbook.getImage(image.imageId);
+        if (img && img.buffer) {
+          const ext = (img.extension || 'png').toLowerCase();
+          const mime = ext === 'jpg' ? 'jpeg' : ext;
+          embeddedPhotos[row] = `data:image/${mime};base64,${Buffer.from(img.buffer).toString('base64')}`;
+        }
+      } catch (_) {
+        // skip unreadable images
+      }
+    }
+  }
+
   const students = [];
   worksheet.eachRow((row, rowNumber) => {
     if (rowNumber === 1) return; // skip header
@@ -58,17 +83,21 @@ async function parseExcel(filePath) {
       student[field] = value != null ? String(value) : '';
     }
 
-    // Resolve photo path relative to excel file directory
-    if (student.photo && student.photo.trim()) {
+    // Check for embedded image first (rowNumber is 1-based, nativeRow is 0-based)
+    if (embeddedPhotos[rowNumber - 1]) {
+      student.photoBase64 = embeddedPhotos[rowNumber - 1];
+    }
+
+    // Fall back to file path resolution
+    if (!student.photoBase64 && student.photo && student.photo.trim()) {
       const photoRaw = student.photo.trim().replace(/\\/g, '/');
-      // Try multiple resolution strategies
       const candidates = [
         path.resolve(excelDir, photoRaw),
         path.resolve(excelDir, path.basename(photoRaw)),
-        photoRaw, // absolute path as-is
+        photoRaw,
       ];
       student.photoPath = candidates.find(p => fs.existsSync(p)) || '';
-    } else {
+    } else if (!student.photoBase64) {
       student.photoPath = '';
     }
 

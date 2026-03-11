@@ -1,6 +1,7 @@
 const { BrowserWindow, dialog, shell } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 
 function imageToBase64(filePath) {
   if (!filePath || !fs.existsSync(filePath)) return '';
@@ -33,8 +34,8 @@ function fillTemplate(html, student) {
     result = result.split(placeholder).join(value);
   }
 
-  // Handle photo
-  const photoBase64 = imageToBase64(student.photoPath);
+  // Handle photo — prefer embedded base64, fall back to file path
+  const photoBase64 = student.photoBase64 || imageToBase64(student.photoPath);
   if (photoBase64) {
     result = result.split('{{photoSrc}}').join(photoBase64);
     result = result.split('{{photoDisplay}}').join('block');
@@ -121,8 +122,12 @@ ${pages.join('\n')}
     webPreferences: { offscreen: true },
   });
 
+  // Write HTML to temp file to avoid data URL length limits
+  const tmpFile = path.join(os.tmpdir(), `examform-${Date.now()}.html`);
+  fs.writeFileSync(tmpFile, fullHTML, 'utf-8');
+
   try {
-    await hiddenWin.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(fullHTML)}`);
+    await hiddenWin.loadFile(tmpFile);
 
     // Wait for images to load
     await hiddenWin.webContents.executeJavaScript(`
@@ -149,6 +154,7 @@ ${pages.join('\n')}
     return { success: true, filePath };
   } finally {
     hiddenWin.destroy();
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
   }
 }
 
