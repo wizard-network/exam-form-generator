@@ -58,6 +58,7 @@ function renderTable() {
       <td class="p-3">${s.schoolName || ''}</td>
       <td class="p-3">${s.optionalI || ''}</td>
       <td class="p-3">${s.optionalII || ''}</td>
+      <td class="p-3">${s.photoBase64 ? `<img src="${s.photoBase64}" class="w-10 h-10 object-cover rounded">` : (s.photoPath ? '📎' : '')}</td>
     `;
     tableBody.appendChild(tr);
   });
