@@ -14,6 +14,13 @@ module.exports = {
       },
     },
     {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        name: 'ExamFormGenerator',
+        format: 'ULFO',
+      },
+    },
+    {
       name: '@electron-forge/maker-deb',
       config: {
         options: {

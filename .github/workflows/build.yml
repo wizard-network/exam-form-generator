@@ -16,6 +16,9 @@ jobs:
           - os: windows-latest
             platform: win32
             args: --arch=x64
+          - os: macos-latest
+            platform: darwin
+            args: --arch=universal
           - os: ubuntu-latest
             platform: linux
             args: --arch=x64
